@@ -1,0 +1,17 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+import Hero from "../components/Index/Hero.astro";
+import AboutMe from "../components/Index/AboutMe.astro";
+import Experience from "../components/Index/Experience.astro";
+
+const title = "Ana Wall";
+const description = "Ana Wall";
+const permalink = Astro.site.href;
+---
+
+<BaseLayout title={title} description={description} permalink={permalink}>
+  <Hero />
+  <AboutMe id="aboutme" />
+  <Experience id="experience" />
+</BaseLayout>

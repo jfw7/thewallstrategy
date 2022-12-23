@@ -1,0 +1,20 @@
+---
+import { frontmatter, Content } from "../../data/about.md";
+---
+
+<div id={Astro.props.id}>
+    <div style="display: flex;">
+        <div style="flex: 2;">
+            <h2>My Background</h2>
+            <div style="max-width: 48rem;">
+                <Content />
+            </div>
+        </div>
+        <div style="flex: 1">
+            <h2>Skills</h2>
+            <ul style="list-style: none">
+                {frontmatter.skills.map((skill) => <li>{skill}</li>)}
+            </ul>
+        </div>
+    </div>
+</div>
