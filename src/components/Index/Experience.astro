@@ -8,28 +8,29 @@ const work = Object.fromEntries(
 );
 ---
 
-<div id={Astro.props.id} class="experience-container">
-    <div style="display: flex">
-        <div style="flex: 1">
-            <h2>Work Experience</h2>
-        </div>
-        <div style="flex: 1">
-            {
-                ["3bp", "solo", "mba"].map((p) => {
-                    const post = work[`${p}.md`];
-                    return (
-                        <section>
-                            <h3>{post.frontmatter.role}</h3>
-                            <h4>
-                                {post.frontmatter.company} /{" "}
-                                {post.frontmatter.when}
-                            </h4>
-                            <post.Content />
-                        </section>
-                    );
-                })
-            }
-        </div>
+<div
+    id={Astro.props.id}
+    class="experience-container"
+    style="display: flex; color: var(--text-inverse)"
+>
+    <div style="flex: 1;">
+        <h2>Work Experience</h2>
+    </div>
+    <div style="flex: 1">
+        {
+            ["3bp", "solo", "mba"].map((p) => {
+                const post = work[`${p}.md`];
+                return (
+                    <section>
+                        <h3>{post.frontmatter.role}</h3>
+                        <h4>
+                            {post.frontmatter.company} / {post.frontmatter.when}
+                        </h4>
+                        <post.Content />
+                    </section>
+                );
+            })
+        }
     </div>
 </div>
 
@@ -51,5 +52,11 @@ const work = Object.fromEntries(
     h4 {
         font-size: 1.2rem;
         font-weight: 300;
+    }
+
+    @media (max-width: 800px) {
+        .experience-container {
+            flex-direction: column;
+        }
     }
 </style>
